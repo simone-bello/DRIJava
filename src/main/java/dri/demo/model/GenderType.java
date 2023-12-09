@@ -1,0 +1,9 @@
+package dri.demo.model;
+
+public enum GenderType {
+  UNRECOGNIZED,
+  GENDER_TYPE_FEMALE,
+  GENDER_TYPE_MALE,
+  GENDER_TYPE_UNDEFINED,
+  GENDER_TYPE_UNKNOWN;
+}
