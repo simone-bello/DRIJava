@@ -19,7 +19,8 @@ public enum FeedType {
 
   public static Optional<FeedType> nullableValueOf(String name) {
     try {
-      return Optional.of(FeedType.valueOf(name));
+      return Optional.ofNullable(name)
+          .map(FeedType::valueOf);
     } catch (IllegalArgumentException ex) {
       return Optional.empty();
     }

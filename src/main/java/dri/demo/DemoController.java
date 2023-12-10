@@ -41,7 +41,7 @@ public class DemoController {
   public String extract(@PathParam("type") String type) {
     return
         Optional.ofNullable(extractors.get(type))
-            .map(feedExtractor -> feedExtractor.extract())
+            .map(FeedExtractor::extract)
             .orElse("type not found");
   }
 
@@ -51,10 +51,8 @@ public class DemoController {
   @Produces(MediaType.APPLICATION_JSON)
   public Response all(@QueryParam("type") String type) {
 
-    // FIXME: NPE on filtering
-    // example : /document?type=PNR
     return Response
-        .ok(documentService.all(type))
+        .ok(documentService.all_fixme(type))
         .build();
   }
 
@@ -63,11 +61,8 @@ public class DemoController {
   @Path("/document")
   @Produces(MediaType.APPLICATION_JSON)
   public Response one(@QueryParam("type") String type) {
-
-    // FIXME: NPE on get() example : /document?type=INSURANCE
-
     return Response
-        .ok(documentService.one(type))
+        .ok(documentService.one_fixme(type))
         .build();
   }
 
@@ -76,11 +71,8 @@ public class DemoController {
   @Produces(MediaType.APPLICATION_JSON)
   public Response allProducts(@QueryParam("type") String type) {
 
-    // FIXME: wrong result
-    // example : /products
-
     return Response
-        .ok(documentService.getAllProducts(type))
+        .ok(documentService.getAllProducts_fixme(type))
         .build();
   }
 
@@ -88,11 +80,8 @@ public class DemoController {
   @Path("/coupons")
   public Response countCouponByDocument(@QueryParam("type") String type) {
 
-    // FIXME: NPE on get()
-    // example : /document?type=INSURANCE
-
     return Response
-        .ok(documentService.getCouponsByDocument(type))
+        .ok(documentService.getCouponsByDocument_fixme(type))
         .build();
 
   }
