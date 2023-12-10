@@ -1,4 +1,4 @@
-# annotation
+# DRI Java
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
